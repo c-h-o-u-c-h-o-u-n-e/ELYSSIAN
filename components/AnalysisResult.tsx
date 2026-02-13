@@ -16,8 +16,15 @@ export const AnalysisResult: React.FC<AnalysisResultProps> = ({ data, originalIm
   const generateVisual = async (id: string, type: 'product' | 'front' | 'back', prompt: string) => {
     setLoadingVisual(id);
     try {
-      // Use Front view as primary reference for all generations
-      const url = await geminiService.generateVisual(type, prompt, originalImages.front);
+      let referenceImage: string;
+      if (type === 'product') {
+        referenceImage = originalImages.front;
+      } else if (type === 'front') {
+        referenceImage = originalImages.front;
+      } else {
+        referenceImage = originalImages.back;
+      }
+      const url = await geminiService.generateVisual(type, prompt, referenceImage);
       setVisuals(prev => ({ ...prev, [id]: url }));
     } catch (err) {
       console.error(err);

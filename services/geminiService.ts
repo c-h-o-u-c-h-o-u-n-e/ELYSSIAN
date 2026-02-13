@@ -136,18 +136,24 @@ export class GeminiService {
     } else {
       // Images 2 and 3: Seedream 4.5 via OpenRouter at 1K (1024x1024)
       try {
+        const requestBody: any = {
+          model: "seedream-4.5",
+          prompt: prompt,
+          size: "1024x1024",
+          response_format: "b64_json"
+        };
+
+        if (referenceImageBase64) {
+          requestBody.image = `data:image/jpeg;base64,${referenceImageBase64}`;
+        }
+
         const response = await fetch("https://openrouter.ai/api/v1/images/generations", {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({
-            model: "seedream-4.5",
-            prompt: prompt,
-            size: "1024x1024",
-            response_format: "b64_json"
-          })
+          body: JSON.stringify(requestBody)
         });
 
         if (response.ok) {
