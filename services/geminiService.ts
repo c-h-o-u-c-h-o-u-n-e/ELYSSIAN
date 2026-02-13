@@ -1,8 +1,6 @@
 import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
 import { AnalysisResponse, ReferenceImages } from "../types";
 
-const OPENROUTER_API_KEY = "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";
-
 export class GeminiService {
   private ai: GoogleGenAI;
 
@@ -141,7 +139,7 @@ export class GeminiService {
         const response = await fetch("https://openrouter.ai/api/v1/images/generations", {
           method: "POST",
           headers: {
-            "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+            "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
