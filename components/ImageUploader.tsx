@@ -93,6 +93,18 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
                   {['30', '32', '34', '36', '38', '40'].map((band) => {
                     const size = `${band}${cup}`;
                     return (
+                                        <button
+                    type="button"
+                    onClick={() => setSizeInfo(['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex])}
+                    disabled={isLoading}
+                    className={`py-2 px-1 text-[11px] font-black uppercase border-2 border-black transition-all ${
+                      sizeInfo === ['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]
+                        ? 'bg-[#d81b60] text-white'
+                        : 'bg-white text-black hover:bg-[#f06292] hover:text-white'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    {['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]}
+                  </button>
                       <button
                         key={size}
                         type="button"
@@ -108,18 +120,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
                       </button>
                     );
                   })}
-                  <button
-                    type="button"
-                    onClick={() => setSizeInfo(['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex])}
-                    disabled={isLoading}
-                    className={`py-2 px-1 text-[11px] font-black uppercase border-2 border-black transition-all ${
-                      sizeInfo === ['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]
-                        ? 'bg-[#d81b60] text-white'
-                        : 'bg-white text-black hover:bg-[#f06292] hover:text-white'
-                    } disabled:opacity-50 disabled:cursor-not-allowed`}
-                  >
-                    {['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]}
-                  </button>
+
                 </React.Fragment>
               ))}
             </div>
