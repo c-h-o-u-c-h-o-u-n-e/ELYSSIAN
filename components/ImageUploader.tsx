@@ -113,7 +113,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
                     onClick={() => setSizeInfo(['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex])}
                     disabled={isLoading}
                     className={`py-2 px-1 text-[11px] font-black uppercase border-2 border-black transition-all ${
-                      sizeInfo === ['XSS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]
+                      sizeInfo === ['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]
                         ? 'bg-[#d81b60] text-white'
                         : 'bg-white text-black hover:bg-[#f06292] hover:text-white'
                     } disabled:opacity-50 disabled:cursor-not-allowed`}
