@@ -1,0 +1,7 @@
+{
+  "name": "Elysian Lingerie AI Assistant",
+  "description": "A sophisticated AI-powered assistant for lingerie boutiques that analyzes garment details and generates professional-grade image generation prompts for product and model photography.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
