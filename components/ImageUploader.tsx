@@ -57,6 +57,8 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
               <div className={`relative border-4 border-black transition-colors aspect-square ${previews[view] ? 'bg-[#f48fb1]' : 'bg-[#fce4ec]'}`}>
                 <input
                   type="file"
+                  id={`upload-${view}`}
+                  name={`${view}-image`}
                   accept="image/*"
                   onChange={handleFileChange(view)}
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
@@ -84,6 +86,8 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
             <span className="text-xs font-black text-black uppercase tracking-widest block mb-3">Garment Specifications</span>
             <input
               type="text"
+              id="garment-specifications"
+              name="garment-specifications"
               placeholder="E.G., 34B, SILK SATIN, FRENCH LACE..."
               value={sizeInfo}
               onChange={(e) => setSizeInfo(e.target.value)}
