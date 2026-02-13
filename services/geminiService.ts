@@ -5,7 +5,7 @@ export class GeminiService {
   private ai: GoogleGenAI;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    this.ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
   }
 
   private async getRandomLine(filename: string): Promise<string> {
@@ -139,7 +139,7 @@ export class GeminiService {
         const response = await fetch("https://openrouter.ai/api/v1/images/generations", {
           method: "POST",
           headers: {
-            "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            "Authorization": `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
