@@ -86,13 +86,6 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
           <div className="bg-[#fce4ec] border-4 border-black p-6 space-y-3">
             <div className="grid grid-cols-7 gap-2">
               <div className="col-span-7 grid grid-cols-7 gap-2 pb-2 border-b-2 border-black/20">
-                <div className="text-center text-[10px] font-black uppercase text-black">30</div>
-                <div className="text-center text-[10px] font-black uppercase text-black">32</div>
-                <div className="text-center text-[10px] font-black uppercase text-black">34</div>
-                <div className="text-center text-[10px] font-black uppercase text-black">36</div>
-                <div className="text-center text-[10px] font-black uppercase text-black">38</div>
-                <div className="text-center text-[10px] font-black uppercase text-black">40</div>
-                <div className="text-center text-[10px] font-black uppercase text-black">MISC</div>
               </div>
 
               {['A', 'B', 'C', 'D', 'DD', 'DDD'].map((cup, rowIndex) => (
