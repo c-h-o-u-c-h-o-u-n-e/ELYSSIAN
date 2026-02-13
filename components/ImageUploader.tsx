@@ -82,19 +82,63 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
         </div>
 
         <div className="space-y-6">
-          <label className="block">
-            <span className="text-xs font-black text-black uppercase tracking-widest block mb-3">Garment Specifications</span>
-            <input
-              type="text"
-              id="garment-specifications"
-              name="garment-specifications"
-              placeholder="E.G., 34B, SILK SATIN, FRENCH LACE..."
-              value={sizeInfo}
-              onChange={(e) => setSizeInfo(e.target.value)}
-              className="w-full px-6 py-5 bg-[#fce4ec] border-4 border-black text-black font-black focus:outline-none placeholder:text-black/30 placeholder:uppercase"
-              disabled={isLoading}
-            />
-          </label>
+          <span className="text-xs font-black text-black uppercase tracking-widest block mb-3">Garment Specifications</span>
+          <div className="bg-[#fce4ec] border-4 border-black p-6 space-y-3">
+            <div className="grid grid-cols-7 gap-2">
+              <div className="col-span-7 grid grid-cols-7 gap-2 pb-2 border-b-2 border-black/20">
+                <div className="text-center text-[10px] font-black uppercase text-black">30</div>
+                <div className="text-center text-[10px] font-black uppercase text-black">32</div>
+                <div className="text-center text-[10px] font-black uppercase text-black">34</div>
+                <div className="text-center text-[10px] font-black uppercase text-black">36</div>
+                <div className="text-center text-[10px] font-black uppercase text-black">38</div>
+                <div className="text-center text-[10px] font-black uppercase text-black">40</div>
+                <div className="text-center text-[10px] font-black uppercase text-black">MISC</div>
+              </div>
+
+              {['A', 'B', 'C', 'D', 'DD', 'DDD'].map((cup, rowIndex) => (
+                <React.Fragment key={cup}>
+                  {['30', '32', '34', '36', '38', '40'].map((band) => {
+                    const size = `${band}${cup}`;
+                    return (
+                      <button
+                        key={size}
+                        type="button"
+                        onClick={() => setSizeInfo(size)}
+                        disabled={isLoading}
+                        className={`py-2 px-1 text-[11px] font-black uppercase border-2 border-black transition-all ${
+                          sizeInfo === size
+                            ? 'bg-[#d81b60] text-white'
+                            : 'bg-white text-black hover:bg-[#f06292] hover:text-white'
+                        } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      >
+                        {size}
+                      </button>
+                    );
+                  })}
+                  <button
+                    type="button"
+                    onClick={() => setSizeInfo(['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex])}
+                    disabled={isLoading}
+                    className={`py-2 px-1 text-[11px] font-black uppercase border-2 border-black transition-all ${
+                      sizeInfo === ['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]
+                        ? 'bg-[#d81b60] text-white'
+                        : 'bg-white text-black hover:bg-[#f06292] hover:text-white'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    {['XS', 'S', 'M', 'L', 'XL', 'XXL'][rowIndex]}
+                  </button>
+                </React.Fragment>
+              ))}
+            </div>
+            {sizeInfo && (
+              <div className="pt-3 border-t-2 border-black/20">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-black/60">Selected:</span>
+                  <span className="text-sm font-black uppercase text-black bg-[#f06292] px-3 py-1 border-2 border-black">{sizeInfo}</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <button
