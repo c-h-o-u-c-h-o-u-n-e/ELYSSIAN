@@ -85,7 +85,7 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onProcess, isLoadi
           <span className="text-xs font-black text-black uppercase tracking-widest block mb-3">Garment Specifications</span>
           <div className="bg-[#fce4ec] border-4 border-black p-6 space-y-3">
             <div className="grid grid-cols-7 gap-2">
-              <div className="col-span-6 grid grid-cols-7 gap-2 pb-2 border-b-2 border-black/20">
+              <div className="col-span-7 grid grid-cols-7 gap-2 pb-2 border-b-2 border-black/20">
               </div>
 
               {['A', 'B', 'C', 'D', 'DD', 'DDD'].map((cup, rowIndex) => (
