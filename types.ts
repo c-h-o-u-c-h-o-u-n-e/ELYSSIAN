@@ -8,6 +8,18 @@ export interface AnalysisResponse {
     fit: string;
     uniqueFeatures: string;
   };
+  braDNA: {
+    brand: string;
+    model: string;
+    size: string;
+    condition: string;
+    colors: string;
+    padding: string;
+    underwire: string;
+    closure: string;
+    straps: string;
+    jHook: string;
+  };
   prompts: {
     productShot: string;
     frontModelShot: string;

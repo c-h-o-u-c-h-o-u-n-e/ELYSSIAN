@@ -77,6 +77,76 @@ export const AnalysisResult: React.FC<AnalysisResultProps> = ({ data, originalIm
         </div>
       )}
 
+      {/* Bra DNA Section */}
+      <section className="space-y-12">
+        <div className="text-center space-y-6">
+          <h2 className="text-5xl md:text-7xl font-black text-black leading-none uppercase tracking-tighter italic">
+            Bra <span className="text-[#d81b60]">DNA</span>
+          </h2>
+          <div className="w-40 h-2 bg-black mx-auto"></div>
+        </div>
+
+        <div className="max-w-3xl mx-auto bg-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-1">
+              <div className="text-2xl">🏷️</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Brand</div>
+              <div className="text-sm font-black text-black">{data.braDNA.brand}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">👙</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Model</div>
+              <div className="text-sm font-black text-black">{data.braDNA.model}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">📐</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Size</div>
+              <div className="text-sm font-black text-black">{data.braDNA.size}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">⭐</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Condition</div>
+              <div className="text-sm font-black text-black">{data.braDNA.condition}</div>
+            </div>
+            <div className="space-y-1 md:col-span-2">
+              <div className="text-2xl">🎨</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Colors</div>
+              <div className="text-sm font-black text-black">{data.braDNA.colors}</div>
+            </div>
+          </div>
+
+          <div className="h-px bg-black/20 my-6"></div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-1">
+              <div className="text-2xl">🧸</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Padding</div>
+              <div className="text-sm font-black text-black">{data.braDNA.padding}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">🧷</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Underwire</div>
+              <div className="text-sm font-black text-black">{data.braDNA.underwire}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">🔗</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Closure</div>
+              <div className="text-sm font-black text-black">{data.braDNA.closure}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">🎀</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">Straps</div>
+              <div className="text-sm font-black text-black">{data.braDNA.straps}</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-2xl">🪝</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-black/40">J-Hook</div>
+              <div className="text-sm font-black text-black">{data.braDNA.jHook}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Analysis Section */}
       <section className="space-y-12">
         <div className="text-center space-y-6">

@@ -31,14 +31,29 @@ export class GeminiService {
     const prompt = `
       Act as a world-class lingerie design expert and creative director for high-end marketplaces.
       Analyze the provided lingerie images (Front, Back, and Side views) and the size info: "${sizeInfo}".
-      
-      Your goal is to provide 3 image generation prompts.
+
+      Your goal is to:
+      1. Extract detailed "Bra DNA" metadata from the images
+      2. Provide 3 image generation prompts
+
+      BRA DNA EXTRACTION (REQUIRED):
+      You MUST analyze the bra and extract the following information:
+      - Brand: The brand name if visible (e.g., "La Senza", "Victoria's Secret", "Unknown")
+      - Model: The model/collection name if identifiable (e.g., "Beyond Sexy", "Dream Angels", "Classic")
+      - Size: Use "${sizeInfo}" as the size
+      - Condition: Assess the condition (e.g., "Very Good", "Excellent", "Good", "Fair")
+      - Colors: Primary color(s) of the bra (e.g., "Hot Pink / Fuschia", "Black", "White / Nude")
+      - Padding: Type of padding (e.g., "Lightly Padded", "Heavily Padded", "Unpadded", "Push-Up")
+      - Underwire: Presence of underwire (e.g., "Yes", "No")
+      - Closure: Type of closure (e.g., "Front-Closure", "Back Hook-and-Eye", "No Closure")
+      - Straps: Strap type (e.g., "Convertible", "Standard", "Adjustable", "Halter", "Strapless")
+      - J-Hook: Presence of J-Hook/racerback converter (e.g., "Yes", "No")
 
       FIXED MODEL IDENTITY (MANDATORY):
-      For ALL model shots (Prompt 2 and 3), you MUST use this exact identity and hairstyle. 
+      For ALL model shots (Prompt 2 and 3), you MUST use this exact identity and hairstyle.
       - Model Identity: ${selectedGirl}
       - Hairstyle: ${selectedHair}
-      
+
       Consistency is CRITICAL. Prompt 2 and Prompt 3 must describe the SAME woman in the SAME setting (a modern, realistic bedroom).
 
       ANATOMICAL REALISM (CUP SIZE):
@@ -87,6 +102,22 @@ export class GeminiService {
               },
               required: ['fabric', 'colors', 'construction', 'embellishments', 'fit', 'uniqueFeatures']
             },
+            braDNA: {
+              type: Type.OBJECT,
+              properties: {
+                brand: { type: Type.STRING },
+                model: { type: Type.STRING },
+                size: { type: Type.STRING },
+                condition: { type: Type.STRING },
+                colors: { type: Type.STRING },
+                padding: { type: Type.STRING },
+                underwire: { type: Type.STRING },
+                closure: { type: Type.STRING },
+                straps: { type: Type.STRING },
+                jHook: { type: Type.STRING }
+              },
+              required: ['brand', 'model', 'size', 'condition', 'colors', 'padding', 'underwire', 'closure', 'straps', 'jHook']
+            },
             prompts: {
               type: Type.OBJECT,
               properties: {
@@ -97,7 +128,7 @@ export class GeminiService {
               required: ['productShot', 'frontModelShot', 'backModelShot']
             }
           },
-          required: ['analysis', 'prompts']
+          required: ['analysis', 'braDNA', 'prompts']
         }
       }
     });
