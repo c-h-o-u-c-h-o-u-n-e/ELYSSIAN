@@ -67,7 +67,7 @@ export class GeminiService {
 
       Generate 3 prompts:
       1. Product Shot: The bra alone on black satin. Entire garment visible, technical focus. High resolution 1K style.
-      2. Front Profile Selfie: Mirror selfie or self-timer of the FIXED MODEL in her bedroom (not the room in reference image). Realistic bust volume for "${sizeInfo}". The model is not wearing any piece of clothing from the reference image other than the bra.
+      2. Front Profile Selfie: Mirror selfie of the FIXED MODEL in her bedroom (not the room in reference image). Realistic bust volume for "${sizeInfo}". The model is not wearing any piece of clothing from the reference image other than the bra.
       3. Back/Side View: THE SAME FIXED MODEL as Prompt 2 in the same room. Focus on back construction, straps, and side profile volume for "${sizeInfo}". The model is not wearing any piece of clothing from the reference image other than the bra.
 
       Return as JSON.
